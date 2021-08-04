@@ -2,6 +2,7 @@ const items = document.getElementsByClassName('category');
 const categoryEl = document.getElementsByClassName('catagory-buttons');
 
 const categoryList = ['all'];
+console.log(categoryList)
 
 Array.prototype.forEach.call(items, item => {
     categoryList.push(item.children[0].children[1].children[0].innerHTML);
@@ -10,11 +11,9 @@ Array.prototype.forEach.call(items, item => {
 const uniqueCategoryList = [...new Set(categoryList)];
 
 uniqueCategoryList.forEach((unique) => {
-
   const btn = createBtn(unique, categoryEl);
- 
-    btn.addEventListener('click', () => {
 
+    btn.addEventListener('click', () => {
       Array.prototype.forEach.call(items, item => {
         item.style.display = 'block';
          if(item.children[0].children[1].children[0].innerHTML !== unique) {
